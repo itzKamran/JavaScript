@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Array Crud Operations </h1>
+    <script>
+/// araay of users
+let users = [
+    {
+        id: 1,
+        name: "Kamran",
+        email: "kamran@gmail.com",
+        password: "1234"
+    },
+    {
+        id: 2,
+        name: "Rahul",
+        email: "rahul@gmail.com",
+        password: "5678"
+    },
+    {
+        id: 3,
+        name: "Aman",
+        email: "aman@gmail.com",
+        password: "9999"
+    }
+];
+
+console.log("Initial Users:");
+console.log(users);
+
+
+// create new users
+
+let newUser = {
+    id: 4,
+    name: "Ali",
+    email: "ali@gmail.com",
+    password: "1111"
+};
+
+users.push(newUser);
+
+console.log("After Adding User:");
+console.log(users);
+
+
+// read
+
+console.log("All Users:");
+
+users.forEach((user) => {
+    console.log(user);
+});
+
+
+// read find one user
+
+let user = users.find((user) => user.id === 2);
+
+console.log("Found User:");
+console.log(user);
+
+
+// update users
+
+users = users.map((user) => {
+
+    if (user.id === 2) {
+        return {
+            
+            name: "Rahul Sharma",
+            email: "rahulsharma@gmail.com"
+        };
+    }
+
+    return user;
+});
+
+console.log("After Updating User:");
+console.log(users);
+
+/// delete user
+
+users = users.filter((user) => user.id !== 3);
+
+console.log("After Deleting User:");
+console.log(users);
+
+// login using find
+
+let loginEmail = "kamran@gmail.com";
+let loginPassword = "1234";
+
+let loggedInUser = users.find((user) => {
+    return user.email === loginEmail &&
+           user.password === loginPassword;
+});
+
+if (loggedInUser) {
+    console.log("Login Successful!");
+    console.log("Welcome " + loggedInUser.name);
+} else {
+    console.log("Invalid Email or Password!");
+}
+
+    
+        
+        
+    </script>
+</body>
+</html>
